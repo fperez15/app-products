@@ -18,7 +18,7 @@
         "price": 2499.99,
         "stock": 5,
         "rating": 4.9,
-        "image": "/images/macbook-pro.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "PHN789",
@@ -28,7 +28,7 @@
         "price": 1099.99,
         "stock": 20,
         "rating": 4.8,
-        "image": "/images/iphone-14.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "PHN101",
@@ -38,7 +38,7 @@
         "price": 1199.99,
         "stock": 15,
         "rating": 4.7,
-        "image": "/images/samsung-s23.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "ACC112",
@@ -48,7 +48,7 @@
         "price": 99.99,
         "stock": 25,
         "rating": 4.6,
-        "image": "/images/mouse-logitech.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "ACC113",
@@ -58,7 +58,7 @@
         "price": 149.99,
         "stock": 10,
         "rating": 4.4,
-        "image": "/images/teclado-razer.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "SPK200",
@@ -68,7 +68,7 @@
         "price": 399.99,
         "stock": 8,
         "rating": 4.8,
-        "image": "/images/sony-wh1000xm5.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "TV300",
@@ -78,7 +78,7 @@
         "price": 799.99,
         "stock": 6,
         "rating": 4.7,
-        "image": "/images/tv-samsung.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "WCH400",
@@ -88,7 +88,7 @@
         "price": 499.99,
         "stock": 14,
         "rating": 4.6,
-        "image": "/images/apple-watch.jpg"
+        "image": "/images/MacBook.webp"
       },
       {
         "sku": "CMA500",
@@ -98,7 +98,7 @@
         "price": 1999.99,
         "stock": 3,
         "rating": 4.8,
-        "image": "/images/canon-r6.jpg"
+        "image": "/images/MacBook.webp"
       }
     ]
   }

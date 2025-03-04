@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {  Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
 
 const outfit = OutfitFont({
   subsets: ["latin"], 
@@ -27,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${ovo.variable} antialiased`}
-      >
-        {children}
+        className={`${outfit.variable} ${ovo.variable} antialiased`}>
+         <Providers> {/* ✅ Ahora `QueryClientProvider` envuelve toda la app */}
+          {children}
+        </Providers>
       </body>
     </html>
   );

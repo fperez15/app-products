@@ -1,9 +1,11 @@
+import ProductList from "@/components/ProductList";
 
 export default function Home() {
   return (
     <>
-  <h1>Page</h1>
-
+    <div className="container mx-auto px-4 py-8">
+      <ProductList />
+    </div>
     </>
   );
 }
