@@ -1,0 +1,105 @@
+{
+    "products": [
+      {
+        "sku": "LAP123",
+        "name": "Laptop Dell Inspiron 15",
+        "category": "Laptops",
+        "brand": "Dell",
+        "price": 750.99,
+        "stock": 12,
+        "rating": 4.5,
+        "image": "/images/laptop-dell.jpg"
+      },
+      {
+        "sku": "LAP456",
+        "name": "MacBook Pro 16” M2",
+        "category": "Laptops",
+        "brand": "Apple",
+        "price": 2499.99,
+        "stock": 5,
+        "rating": 4.9,
+        "image": "/images/macbook-pro.jpg"
+      },
+      {
+        "sku": "PHN789",
+        "name": "iPhone 14 Pro Max",
+        "category": "Smartphones",
+        "brand": "Apple",
+        "price": 1099.99,
+        "stock": 20,
+        "rating": 4.8,
+        "image": "/images/iphone-14.jpg"
+      },
+      {
+        "sku": "PHN101",
+        "name": "Samsung Galaxy S23 Ultra",
+        "category": "Smartphones",
+        "brand": "Samsung",
+        "price": 1199.99,
+        "stock": 15,
+        "rating": 4.7,
+        "image": "/images/samsung-s23.jpg"
+      },
+      {
+        "sku": "ACC112",
+        "name": "Mouse Logitech MX Master 3",
+        "category": "Accesorios",
+        "brand": "Logitech",
+        "price": 99.99,
+        "stock": 25,
+        "rating": 4.6,
+        "image": "/images/mouse-logitech.jpg"
+      },
+      {
+        "sku": "ACC113",
+        "name": "Teclado Mecánico Razer Huntsman",
+        "category": "Accesorios",
+        "brand": "Razer",
+        "price": 149.99,
+        "stock": 10,
+        "rating": 4.4,
+        "image": "/images/teclado-razer.jpg"
+      },
+      {
+        "sku": "SPK200",
+        "name": "Auriculares Sony WH-1000XM5",
+        "category": "Audio",
+        "brand": "Sony",
+        "price": 399.99,
+        "stock": 8,
+        "rating": 4.8,
+        "image": "/images/sony-wh1000xm5.jpg"
+      },
+      {
+        "sku": "TV300",
+        "name": "Smart TV Samsung 55” QLED 4K",
+        "category": "Televisores",
+        "brand": "Samsung",
+        "price": 799.99,
+        "stock": 6,
+        "rating": 4.7,
+        "image": "/images/tv-samsung.jpg"
+      },
+      {
+        "sku": "WCH400",
+        "name": "Apple Watch Series 8",
+        "category": "Wearables",
+        "brand": "Apple",
+        "price": 499.99,
+        "stock": 14,
+        "rating": 4.6,
+        "image": "/images/apple-watch.jpg"
+      },
+      {
+        "sku": "CMA500",
+        "name": "Cámara Canon EOS R6",
+        "category": "Fotografía",
+        "brand": "Canon",
+        "price": 1999.99,
+        "stock": 3,
+        "rating": 4.8,
+        "image": "/images/canon-r6.jpg"
+      }
+    ]
+  }
+  
