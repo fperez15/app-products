@@ -12,9 +12,9 @@ module.exports = {
             darkTheme: '#11001F',
           },
           fontFamily: {
-            Outfit: ["Outfit", "sans-serif"],
-            Ovo: ["Ovo", "serif"]
-          }, 
+            outfit: "var(--font-outfit)", 
+            ovo: "var(--font-ovo)",
+          },
       },
     },
     plugins: [],
