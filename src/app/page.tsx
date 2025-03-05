@@ -1,4 +1,4 @@
-import ProductList from "@/components/ProductList";
+import ProductList from "@/app/products/ProductList";
 import { getProducts } from "@/services/product";
 import { ProductProvider } from "@/context/ProductContext";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { usePagination } from "@/types/usePagination";
+import { usePagination } from "@/hooks/usePagination";
 
 
 export default function Pagination() {

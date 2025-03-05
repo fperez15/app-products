@@ -1,10 +1,10 @@
 "use client";
 
-import SearchBar from "./SearchBar";
-import FilterBar from "./FilterBar";
+import SearchBar from "../../components/SearchBar";
+import FilterBar from "../../components/FilterBar";
 import { PaginationProvider } from "@/context/PaginationContext";
-import PaginatedProductList from "./PaginetedProductList";
-import Pagination from "./Pagination";
+import PaginatedProductList from "../../components/PaginetedProductList";
+import Pagination from "../../components/Pagination";
 
 export default function ProductList() {
   return (

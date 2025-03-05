@@ -1,6 +1,6 @@
 "use client";
 
-import { usePagination } from "@/types/usePagination";
+import { usePagination } from "@/hooks/usePagination";
 import ProductCard from "./ProductCard";
 
 export default function PaginatedProductList() {

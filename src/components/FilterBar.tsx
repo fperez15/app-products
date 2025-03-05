@@ -78,7 +78,7 @@ export default function FilterBar() {
                 />
 
                 <button
-                    className="bg-red-500 text-white px-4 py-2 rounded"
+                    className="bg-blue-700 text-white px-4 py-2 rounded"
                     onClick={() => {
                         setSelectedCategory("");
                         setSelectedBrand("");
