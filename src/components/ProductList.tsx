@@ -1,16 +1,18 @@
 "use client"
 
 import { useProducts } from '@/hooks/useProducts'
-import React from 'react'
+import React, { useState } from 'react'
 import ProductCard from './ProductCard';
+import Skeleton from './SkeletonLoader';
 
 export default function ProductList() {
 
     const { data: products, isLoading, error} = useProducts();
-
+    const [loading, setLoading] = useState(true);
+    
     console.log("Productos en ProductList:", products);
 
-    if (isLoading) return <p className='text-center text-gray-500'>Cargando productos</p>
+    if (isLoading || loading) return <Skeleton onComplete={() => setLoading(false)} />;
     if (error) return <p className='text-center text-red-500'>❌ Error al cargar los productos</p>
   return (
     <>
