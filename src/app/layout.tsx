@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {  Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { ProductProvider } from "@/context/ProductContext";
 
 const outfit = OutfitFont({
   subsets: ["latin"], 
@@ -29,8 +30,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${outfit.variable} ${ovo.variable} antialiased`}>
-         <Providers> {/* ✅ Ahora `QueryClientProvider` envuelve toda la app */}
-          {children}
+         <Providers>
+          <ProductProvider initialProducts={[]}>
+            {children}
+          </ProductProvider>         
         </Providers>
       </body>
     </html>

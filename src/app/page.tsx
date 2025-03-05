@@ -1,19 +1,15 @@
 import ProductList from "@/components/ProductList";
-import SkeletonLoader from "@/components/SkeletonLoader";
 import { getProducts } from "@/services/product";
-import { Suspense } from "react";
+import { ProductProvider } from "@/context/ProductContext";
 
-export default function Home() {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <Suspense fallback={<SkeletonLoader />}>
-        <ProductListWrapper />
-      </Suspense>
-    </div>
-  );
-}
-
-async function ProductListWrapper() {
+export default async function Home() {
   const initialProducts = await getProducts();
-  return <ProductList initialProducts={initialProducts} />;
+
+  return (
+    <ProductProvider initialProducts={initialProducts}>
+      <div className="container mx-auto px-4 py-8">
+        <ProductList />
+      </div>
+    </ProductProvider>
+  );
 }

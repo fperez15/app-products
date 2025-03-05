@@ -13,9 +13,7 @@ const handleApiError = (error: unknown): never => {
   throw new Error("Error inesperado");
 };
 
-
 export const getProducts = async (): Promise<Product[]> => {
-  await new Promise(resolve => setTimeout(resolve, 1000)); // se agrega para mostrar el SkeletonLoader 
   const response = await fetch(API_URL, { cache: "no-store" });
   if (!response.ok) throw new Error("Error al obtener los productos");
   return response.json();
@@ -30,29 +28,3 @@ export const getProductById = async (id: number): Promise<Product> => {
   }
 };
 
-export const addProduct = async (product: Product): Promise<Product> => {
-  try {
-    const response = await axios.post<Product>(API_URL, product);
-    return response.data;
-  } catch (error) {
-    return handleApiError(error);
-  }
-};
-
-// export const updateProduct = async (id: number, product: Partial<Product>): Promise<Product> => {
-//   try {
-//     const response = await axios.put<Product>(`${API_URL}/${id}`, product);
-//     return response.data;
-//   } catch (error) {
-//     return handleApiError(error);
-//   }
-// };
-
-// export const deleteProduct = async (id: number): Promise<{ message: string }> => {
-//   try {
-//     axios.delete(`${API_URL}/${id}`);
-//     return { message: "Producto eliminado correctamente." };
-//   } catch (error) {
-//     return handleApiError(error);
-//   }
-// };
