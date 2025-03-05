@@ -14,7 +14,7 @@ export const getProductBySku = async (sku: string): Promise<Product | null> => {
     const response = await axios.get<Product[]>(`${API_URL}?sku=${sku}`);
 
     if (response.data.length === 0) {
-      console.error(`Producto con SKU ${sku} no encontrado.`);
+      console.error(`Producto con código ${sku} no encontrado.`);
       return null;
     }
 
