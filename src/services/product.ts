@@ -3,28 +3,25 @@ import axios from "axios";
 
 const API_URL = "http://localhost:4000/products";
 
-const handleApiError = (error: unknown): never => {
-  if (axios.isAxiosError(error)) {
-    if (process.env.NODE_ENV !== "production") {
-      console.error("Error en la API:", error.response?.data || error.message);
-    }
-    throw new Error(error.response?.data?.message || "Error en la API");
-  }
-  throw new Error("Error inesperado");
-};
-
 export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(API_URL, { cache: "no-store" });
   if (!response.ok) throw new Error("Error al obtener los productos");
   return response.json();
 };
 
-export const getProductById = async (id: number): Promise<Product> => {
+export const getProductBySku = async (sku: string): Promise<Product | null> => {
   try {
-    const response = await axios.get<Product>(`${API_URL}/${id}`);
-    return response.data;
+    const response = await axios.get<Product[]>(`${API_URL}?sku=${sku}`);
+
+    if (response.data.length === 0) {
+      console.error(`Producto con SKU ${sku} no encontrado.`);
+      return null;
+    }
+
+    return response.data[0];
   } catch (error) {
-    return handleApiError(error);
+    console.error("Error al obtener el producto:", error);
+    return null;
   }
 };
 
