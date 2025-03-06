@@ -28,7 +28,7 @@ React Icons para iconografía
 
 La aplicación sigue una estructura modular y clara:
 
-![Estructura de archivos](image.png)
+![alt text](image.png)
 
 ### ⚡ Performance
 
@@ -42,10 +42,9 @@ Puntuación en Lighthouse superior al 90% en rendimiento.
 Observación: Se sugiere realizar el lighthouse en una navegador que no contenga tanta extensiones ya que perjudica el analisis. Tomar en cuenta la sugerencia.
 
 Ligthouse realizado en navegador con muchas extensiones
-![ligthouse1](image-1.png)
-
+![Ligthouse](image-1.png)
 Ligthouse realizado en navegador sin extensiones o pocas
-![ligthouse2](image-2.png)
+![Ligthouse2](image-2.png)
 
 
 ### 🔍 Data Fetching
@@ -56,7 +55,7 @@ Integración con Firebase Firestore como fuente de datos en producción. Se real
 
 #### Base de Datos creada en firebase para que se listen los productos en la api creada.
 
-![Base de datos](image-3.png)
+![BDD](image-3.png)
 
 #### API /products
 https://firestore.googleapis.com/v1/projects/api-productos-67210/databases/(default)/documents/products
@@ -77,42 +76,38 @@ Manejo de errores con control de excepciones y notificaciones al usuario. Cuando
 
 #### Imagen que lista crea la primera vista que el listado de productos
 
-![Componente PLP](image-5.png)
+![alt text](image-5.png)
 
 #### Imagen que renderiza el listado del lado SSR
 
-![SSR - PLP](image-6.png)
+![SSR_PLP](image-7.png)
+
+#### Imagen de la interfaz del Listado de productos 
+
+![Iterfaz-PLP](image-8.png)
 
 ### 📌 Detalle de Producto (PDP) - Ruta: /products/:sku
 
-✅ SSR para obtener datos del producto en el servidor.
 ✅ Gestión de estados de carga y errores.
 ✅ SEO optimizado con metadata de Next.js.
 ✅ Breadcrumbs para mejor navegación.
 
-🔎 Código relevante:
+#### Interfaz del detalle del producto
 
-export default async function ProductDetail({ params }: { params: { sku: string } }) {
-  const product = await getProductBySku(params.sku);
-  if (!product) return <p>Producto no encontrado</p>;
-
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <Breadcrumb category={product.category || ''} productName={product.name} />
-      <ProductCard product={product} />
-    </div>
-  );
-}
+![Interfaz-PLD](image-9.png)
 
 
-🚀 Deployment
+### 🚀 Deployment
 
 La aplicación está desplegada en Vercel:
 🔗 App Products en Vercel
+https://prueba-reto.vercel.app/
 
-📜 Convenciones de Commits
+### 📜 Convenciones de Commits
 
 Se siguen las convenciones de Conventional Commits:
+
+chore: Utilizado para configuraciones o mantenimiento que no afecten el código fuente
 
 feat: agregar nueva funcionalidad
 
@@ -120,14 +115,3 @@ fix: corregir error
 
 docs: actualizar documentación
 
-refactor: refactorización de código
-
-📈 Mejoras Futuras
-
-Implementar autenticación de usuarios.
-
-Mejorar accesibilidad según WCAG.
-
-Optimizar renderizado con useMemo y useCallback.
-
-Agregar tests end-to-end con Cypress.
