@@ -1,7 +1,7 @@
 import { Product } from "@/types/product";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/products";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/products";
 
 export const getProducts = async (): Promise<Product[]> => {
   const response = await fetch(API_URL, { cache: "no-store" });

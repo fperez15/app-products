@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
 
 export default function ProductPage() {
-  const { sku } = useParams(); // ✅ Obtener `params.sku` de forma segura
+  const { sku } = useParams();
   const { product, loading, error } = useProductDetail(sku as string);
 
   if (loading) return <Loader />;
