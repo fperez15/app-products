@@ -1,40 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useProductContext } from "@/context/ProductContext";
 
 export default function FilterBar() {
     const { setProducts, allProducts } = useProductContext();
+
+    const safeProducts = useMemo(() => allProducts ?? [], [allProducts]);
 
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedBrand, setSelectedBrand] = useState("");
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
 
-    const categories = Array.from(new Set(allProducts.map((p) => p.category)));
-    const brands = Array.from(new Set(allProducts.map((p) => p.brand)));
+    const categories = useMemo(() => Array.from(new Set(safeProducts.map((p) => p.category))), [safeProducts]);
+    const brands = useMemo(() => Array.from(new Set(safeProducts.map((p) => p.brand))), [safeProducts]);
 
     useEffect(() => {
-        let filtered = [...allProducts];
-
+        let filtered = [...safeProducts];
+    
         if (selectedCategory) {
             filtered = filtered.filter((product) => product.category === selectedCategory);
         }
-
+    
         if (selectedBrand) {
             filtered = filtered.filter((product) => product.brand === selectedBrand);
         }
-
+    
         if (minPrice) {
             filtered = filtered.filter((product) => product.price >= parseFloat(minPrice));
         }
-
+    
         if (maxPrice) {
             filtered = filtered.filter((product) => product.price <= parseFloat(maxPrice));
         }
-
+    
         setProducts(filtered);
-    }, [selectedCategory, selectedBrand, minPrice, maxPrice, allProducts, setProducts]);
+    }, [selectedCategory, selectedBrand, minPrice, maxPrice, safeProducts, setProducts]); 
 
     return (
         <div className="mb-6 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -84,7 +86,7 @@ export default function FilterBar() {
                         setSelectedBrand("");
                         setMinPrice("");
                         setMaxPrice("");
-                        setProducts(allProducts);
+                        setProducts(safeProducts);
                     }}
                 >
                     Limpiar filtros

@@ -19,11 +19,13 @@ export function PaginationProvider({ children }: { children: ReactNode }) {
   const { products } = useProductContext();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+  const safeProducts: Product[] = products ?? [];
+
+  const totalPages = Math.ceil(safeProducts.length / PRODUCTS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
-  const paginatedProducts = products.slice(startIndex, endIndex);
+  const paginatedProducts = safeProducts.slice(startIndex, endIndex);
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {

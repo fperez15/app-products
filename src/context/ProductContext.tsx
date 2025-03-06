@@ -11,9 +11,10 @@ interface ProductContextType {
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
-export const ProductProvider = ({ children, initialProducts }: { children: ReactNode; initialProducts: Product[] }) => {
-    const [products, setProducts] = useState<Product[]>(initialProducts);
-    const [allProducts] = useState<Product[]>(initialProducts);
+export const ProductProvider = ({ children, initialProducts = [] }: { children: ReactNode; initialProducts?: Product[] }) => {
+
+    const [products, setProducts] = useState<Product[]>(initialProducts || []);
+    const [allProducts] = useState<Product[]>(initialProducts || []);
 
     return (
       <ProductContext.Provider value={{ products, setProducts, allProducts }}>
