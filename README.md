@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🛍️ Aplicación Web de Catálogo de Productos
 
-## Getting Started
+### 📌 Descripción
 
-First, run the development server:
+Esta es una aplicación web de catálogo de productos desarrollada con Next.js 15. Utiliza Firebase Firestore como base de datos y se despliega en Vercel. La aplicación permite visualizar productos con paginación, filtros, búsqueda y detalles individuales.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🛠️ Tecnologías Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js 15 con App Router
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+TailwindCSS
 
-## Learn More
+React Query para el manejo de datos
 
-To learn more about Next.js, take a look at the following resources:
+Firebase Firestore (Base de datos)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ESLint con configuración básica
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Jest y React Testing Library para pruebas
 
-## Deploy on Vercel
+Axios para llamadas a API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+React Icons para iconografía
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🏗️ Arquitectura y Buenas Prácticas
+
+La aplicación sigue una estructura modular y clara:
+
+![Estructura de archivos](image.png)
+
+### ⚡ Performance
+
+Uso de Server Components para optimizar la carga inicial.
+
+Implementación de loading.tsx para mostrar estados de carga.
+
+Optimización de imágenes con next/image.
+
+Puntuación en Lighthouse superior al 90% en rendimiento.
+Observación: Se sugiere realizar el lighthouse en una navegador que no contenga tanta extensiones ya que perjudica el analisis. Tomar en cuenta la sugerencia.
+
+Ligthouse realizado en navegador con muchas extensiones
+![ligthouse1](image-1.png)
+
+Ligthouse realizado en navegador sin extensiones o pocas
+![ligthouse2](image-2.png)
+
+
+### 🔍 Data Fetching
+
+Uso de React Query para un manejo eficiente de datos en caché y revalidación automática.
+
+Integración con Firebase Firestore como fuente de datos en producción. Se realizó la base de datos en firebase debido aque para desplegar el proyecto en Vercel requeria una api de products para poder listar los productos y ver el detalle del mismo.
+
+#### Base de Datos creada en firebase para que se listen los productos en la api creada.
+
+![Base de datos](image-3.png)
+
+#### API /products
+https://firestore.googleapis.com/v1/projects/api-productos-67210/databases/(default)/documents/products
+
+
+Manejo de errores con control de excepciones y notificaciones al usuario. Cuando no hay un producto en especifico se arorja la advertencia de que el producto no existe o ha sido eliminado
+
+![Manejo de errores](image-4.png)
+
+### 📌 Listado de Productos (PLP) - Ruta: /
+
+✅ SSR para carga optimizada.
+✅ Búsqueda con debounce (500ms) para mejorar la experiencia del usuario.✅ Filtros dinámicos por categoría y marca.
+✅ Paginación funcional.
+✅ Skeleton loaders para carga de contenido.
+
+🔎 Código relevante:
+
+#### Imagen que lista crea la primera vista que el listado de productos
+
+![Componente PLP](image-5.png)
+
+#### Imagen que renderiza el listado del lado SSR
+
+![SSR - PLP](image-6.png)
+
+### 📌 Detalle de Producto (PDP) - Ruta: /products/:sku
+
+✅ SSR para obtener datos del producto en el servidor.
+✅ Gestión de estados de carga y errores.
+✅ SEO optimizado con metadata de Next.js.
+✅ Breadcrumbs para mejor navegación.
+
+🔎 Código relevante:
+
+export default async function ProductDetail({ params }: { params: { sku: string } }) {
+  const product = await getProductBySku(params.sku);
+  if (!product) return <p>Producto no encontrado</p>;
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <Breadcrumb category={product.category || ''} productName={product.name} />
+      <ProductCard product={product} />
+    </div>
+  );
+}
+
+
+🚀 Deployment
+
+La aplicación está desplegada en Vercel:
+🔗 App Products en Vercel
+
+📜 Convenciones de Commits
+
+Se siguen las convenciones de Conventional Commits:
+
+feat: agregar nueva funcionalidad
+
+fix: corregir error
+
+docs: actualizar documentación
+
+refactor: refactorización de código
+
+📈 Mejoras Futuras
+
+Implementar autenticación de usuarios.
+
+Mejorar accesibilidad según WCAG.
+
+Optimizar renderizado con useMemo y useCallback.
+
+Agregar tests end-to-end con Cypress.
